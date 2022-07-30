@@ -38,7 +38,7 @@ V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
 if [[ "$?" != "0" ]]; then
     IP=`curl -sL -6 ip.sb`
-    V6_PROXY="https://gh.hijk.art/"
+    V6_PROXY=""
 fi
 
 BT="false"
@@ -542,7 +542,7 @@ getCert() {
             systemctl start cron
             systemctl enable cron
         fi
-        curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.ch
+        curl -sL https://get.acme.sh | sh -s email=h023jk.pw@protonmail.ch
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
         ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
@@ -819,7 +819,7 @@ installBBR() {
 installV2ray() {
     rm -rf /tmp/v2ray
     mkdir -p /tmp/v2ray
-    DOWNLOAD_LINK="${V6_PROXY}https://github.com/v2fly/v2ray-core/releases/download/${NEW_VER}/v2ray-linux-$(archAffix).zip"
+    DOWNLOAD_LINK="${V6_PROXY}https://github.com/liudi5200/jiluziji.github.io/releases/download/${NEW_VER}/v2ray-linux-$(archAffix).zip"
     colorEcho $BLUE " 下载V2Ray: ${DOWNLOAD_LINK}"
     curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip ${DOWNLOAD_LINK}
     if [ $? != 0 ];then
@@ -838,7 +838,7 @@ installV2ray() {
     cat >$SERVICE_FILE<<-EOF
 [Unit]
 Description=V2ray Service
-Documentation=https://hijk.art
+Documentation=
 After=network.target nss-lookup.target
 
 [Service]
